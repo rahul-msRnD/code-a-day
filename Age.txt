@@ -1,0 +1,42 @@
+#include<iostream>
+using namespace std;
+int noOfDays(int m,int y)
+{
+	if(m==2)
+	{
+		return (y%4==0) ? 29 : 28; 
+	}
+	else
+	{
+		if(0<m<7)
+			return (m%2==1) ? 31 : 30;
+		else
+			return (m%2==1) ? 30 : 31;
+	}
+}
+int isOlder(char a[],char b[])
+{
+	int d1=a[1]-'0'+(10*(a[0]-'0'));
+	int d2=b[1]-'0'+(10*(b[0]-'0'));
+	int m1=a[4]-'0'+(10*(a[3]-'0'));
+	int m2=b[4]-'0'+(10*(b[3]-'0'));
+	int y1=(a[9]-'0')+(10*(a[8]-'0'))+(100*(a[7]-'0'))+(1000*(a[6]-'0'));
+	int y2=(b[9]-'0')+(10*(b[8]-'0'))+(100*(b[7]-'0'))+(1000*(b[6]-'0'));
+	if(0<d1<noOfDays(m1,y1)&&0<d2<noOfDays(m2,y2)&&0<m1<=12&&0<m2<=12)
+	{
+		if(d1==d2&&m1==m2&&y1==y2)
+			return 0;
+		else
+			return (y1<=y2)&&(m1<=m2)&&(d1<=d2) ? 1 : 2;
+	}
+	else
+		return -1;
+}
+int main()
+{
+	char a[10],b[10];
+	gets(a);
+	gets(b);
+	cout<<isOlder(a,b);
+	return 0;
+}
