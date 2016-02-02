@@ -1,0 +1,58 @@
+#include<iostream>
+using namespace std;
+int isOlder( int date[], int month[], int year[])
+{
+	int flag ;
+	if(year[0]<year[1])
+		flag=1; //0 is elder  than 1
+	else if(year[0]==year[1])
+		flag=2; //same age checking others
+	else 
+		flag=3; // 1 is elder than 0
+	if(flag==2)
+	{
+		if(month[0]<month[1])
+			flag=1;
+		else if (month[0]==month[1])
+			flag=2;
+		else 
+			flag=3;
+	}
+	if(flag==2)
+	{
+		if(date[0]<date[1])
+			flag=1;
+		else if(date[0]==date[1])
+			flag=2;
+		else
+			flag=3;
+	}
+if (flag==1)
+	cout<<"The first person is elder than the second";
+if(flag==2)
+	cout<<"They both are of the same age";
+if(flag==3)
+	cout<<"The second person is elder than the first";
+}
+
+int main()
+{
+	int year[2], month[2] ,date[2];
+	int a,b;
+	int i=0,j=0;
+	cout<<"Enter the ages in the given format first date, then month and then year without any gaps. (Date and month should be in 2 digits and year in 4 digits)";
+	cout<<"without hiffens also for example we 26 th jan 2016 will be written as 26012016";
+	cout<<"Enter details of person1"<<endl;
+		cin>>a;
+	cout<<"Enter details of person2"<<endl;
+		cin>>b;
+	//cout<<a;
+	year[0]= (a%10000);
+	year[1]= (b%10000);
+	month[0] = (a%1000000)/10000;
+	month[1] = (b%1000000)/10000;
+	date[0] = a/1000000;
+	date[1] = b/1000000;
+	isOlder( date , month , year);
+	return 0;
+}
