@@ -1,0 +1,39 @@
+#include <stdio.h>
+
+
+int main()
+
+{
+    
+	int n,t=0;
+    
+	scanf("%d\n",&n);
+    
+	int k=n;
+    
+	while(n!=1)
+    
+	{
+    	
+		k=k*(n-1);
+    	
+		n--;
+    
+	}
+    
+	while(k%10==0)
+    
+	{
+    	
+		t++;
+    	
+		k=k/10;
+    
+	}
+    
+	printf("%d",t);
+    
+    
+	return 0;
+
+}
