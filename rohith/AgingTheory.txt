@@ -31,14 +31,11 @@ bool validDate(int d,int m,int y){
 			return true;
 		else
 			return false;
-		
 	}
 }
 
-
 int isOlder(string p1,string p2){
 	
-		
 	int d1=p1[1]-'0'+(10*(p1[0]-'0'));	
 	int d2=p2[1]-'0'+(10*(p2[0]-'0'));	//09-11-2000
 	int m1=p1[4]-'0'+(10*(p1[3]-'0'));	//0123456789
@@ -48,7 +45,6 @@ int isOlder(string p1,string p2){
 	
 if(validDate(d1,m1,y1)&&validDate(d2,m2,y2))
 {
-
 	if((((y1&&y2>0)&&((m1&&m2>0)&&(m1&&m2<=12)))&&((d1&&d2>0)&&(d1&&d2<=31))))
 	{
 		if(y1>y2)
@@ -77,8 +73,8 @@ if(validDate(d1,m1,y1)&&validDate(d2,m2,y2))
 		}	
 	}
 }
-	else 
-	return -1;	
+else 
+return -1;	
 	
 }
 
