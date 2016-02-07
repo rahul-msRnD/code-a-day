@@ -1,31 +1,50 @@
 #include<iostream>
 using namespace std;
+//To check if year is valid or not
+bool check(char a[],char b[])
+{
+	for(int i=6;i<=9;i++)
+	{
+		if(isdigit(a[i])&&isdigit(b[i]))
+		{}
+		else
+			return false;
+	}
+	return true;
+}
+//To find the no of days in a month to check the validity of the date(days)
 int noOfDays(int m,int y)
 {
-	if(m==2)
+	if(m==2)//Leap year
 	{
 		return (((y%4==0)&&(y%100!=0))||(y%400==0)) ? 29 : 28; 
 	}
 	else
 	{
-		if(0<m<7)
+		if((0<m)&&(m<=7))//January-July
 			return (m%2==1) ? 31 : 30;
-		else
+		else//August-December
 			return (m%2==1) ? 30 : 31;
 	}
 }
-
+//Age calculating function
 int isOlder(char a[],char b[])
 {
 	int d1=a[1]-'0'+(10*(a[0]-'0'));
 	int d2=b[1]-'0'+(10*(b[0]-'0'));
 	int m1=a[4]-'0'+(10*(a[3]-'0'));
 	int m2=b[4]-'0'+(10*(b[3]-'0'));
+	if(check(a,b))
+	{}
+	else
+		return -1;
 	int y1=(a[9]-'0')+(10*(a[8]-'0'))+(100*(a[7]-'0'))+(1000*(a[6]-'0'));
 	int y2=(b[9]-'0')+(10*(b[8]-'0'))+(100*(b[7]-'0'))+(1000*(b[6]-'0'));
-	if((0<d1)&&(d1<noOfDays(m1,y1))&&(0<d2)&&(d2<noOfDays(m2,y2))&&(0<m1)&&(m1<=12)&&(0<m2)&&(m2<=12))
+	if((0<d1)&&(d1<=noOfDays(m1,y1))&&(0<d2)&&(d2<=noOfDays(m2,y2))&&(0<m1)&&(m1<=12)&&(0<m2)&&(m2<=12))
+	//Checks if the entered date is a valid one or not
 	{
 		if(d1==d2&&m1==m2&&y1==y2)
+		//If the dates entered are same
 			return 0;
 		else
 			return (y1<=y2)&&(m1<=m2)&&(d1<=d2) ? 1 : 2;
