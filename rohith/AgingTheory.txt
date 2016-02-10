@@ -73,6 +73,18 @@ int main()
 	string p1,p2;
 	cin>>p1;
 	cin>>p2;
+	int count=0;
+	for(int i=6;i<10;i++)
+	{
+		if(isdigit(p1[i])&&isdigit(p2[i]))
+		{
+			count++;
+		}
+	}
+	if(count==4){
 	cout<<isOlder(p1,p2);
+	}
+	else 
+	cout<<"-1";
 	return 0;
 }
