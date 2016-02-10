@@ -42,25 +42,25 @@ int isOlder(string p1,string p2){
 	if((validDate(d1,m1,y1)==1)&&(validDate(d2,m2,y2)==1))
 	{
 			if(y1>y2)
-			return 1;
+			return 2;
 			
 			else if(y2>y1)
-			return 2;
+			return 1;
 		
 			else if(y1==y2)
 			{
 				if(m1>m2)
-					return 1;
+					return 2;
 
 				else if(m2>m1)
-					return 2;
+					return 1;
 		
 					else if(m1==m2)
 					{
 						if(d1>d2)
-							return 1;
-						else if(d2>d1)
 							return 2;
+						else if(d2>d1)
+							return 1;
 						else
 							return 0;	
 					}	
